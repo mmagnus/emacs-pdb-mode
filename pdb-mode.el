@@ -189,8 +189,7 @@
       ["Porphyrin Fe(III)" (pdb-new-hicup "por") t])
      ))
     ("Miscellaneous"
-    ["  Open in RASMOL"     pdb-view  t]
-    ["  Submit to PRODRG"     pdb-new-prodrg  t]
+    ["  Open in PYMOL"     pdb-view  t]
     ["  Toggle Fontification" (font-lock-mode) :style toggle :selected font-lock-mode])))
 
 ;; initialise some variables
@@ -208,7 +207,7 @@
 ;; Need to add (setq pdb-rasmol-name "\"c:/Program Files/Rasmol/rw32b2a.exe\"")
 ;; or something similar to .emacs for windows
 (unless (boundp 'pdb-rasmol-name)
-  (setq pdb-rasmol-name "rasmol"))
+  (setq pdb-rasmol-name "pymol"))
 
 ;; Some necessary data
 (setq pdb-amino-lookup '(("A" . "ALA") ("C" . "CYS") ("D" . "ASP") ("E" . "GLU") ("F" . "PHE") ("G" . "GLY") ("H" . "HIS") ("I" . "ILE") ("K" . "LYS") ("L" . "LEU") ("M" . "MET") ("N" . "ASN") ("P" . "PRO") ("Q" . "GLN") ("R" . "ARG") ("S" . "SER") ("T" . "THR") ("V" . "VAL") ("W" . "TRP") ("Y" . "TYR") ("dA" . "A  ") ("dG" . "G  ") ("dT" . "T  ") ("dC" . "C  ")))
