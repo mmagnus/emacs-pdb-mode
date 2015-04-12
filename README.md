@@ -12,5 +12,4 @@ You can play around with:
     (set-face-foreground 'pdb-comment-face "dark gray")
 
 .. a full list of Emacs color you can get by typing `M-x list-colors-display`.
-
 ![screenshot](screenshot.png)
