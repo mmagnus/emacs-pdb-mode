@@ -12,4 +12,15 @@ You can play around with:
     (set-face-foreground 'pdb-comment-face "dark gray")
 
 .. a full list of Emacs color you can get by typing `M-x list-colors-display`.
-![screenshot](screenshot.png)
+
+Select a residue:
+
+![screenshot](doc/screenshota.png)
+
+.. change Chain ID:
+
+![screenshot](doc/screenshotc.png)
+
+Send a part of the PDB file directly to PyMOL:
+
+![screenshot](doc/screenshotb.png)
