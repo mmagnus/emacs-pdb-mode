@@ -62,6 +62,9 @@
 (defvar pdb-menu-hook nil "Menu hook for pdb-mode")
 (defconst pdb-mode-menu-def
   '("PDB"
+    ("rna-pdb-tools ..."
+     ["RNApuzzle ready"              rna-puzzle-ready t]
+     )
     ("Select ..."
      ["Select chain"                 pdb-select-chain  t]
      ["Select current chain"         (pdb-select-chain "")  t]
@@ -1538,7 +1541,7 @@ ATOM     11  O3* A   A   1       0.272  -1.450  -2.624  1.00 20.00\n"))
 	  (pdb-view-sentinel procname nil))))
   (pdb-sub-defineregion b e)
   (pdb-sub-markregion)
-  (setq pdb-rasmol-filestamp (concat (getenv "PWD") "/#tmp" (number-to-string (elt (current-time) 1)) (number-to-string (emacs-pid)) "#"))
+  (setq pdb-rasmol-filestamp (concat (getenv "PWD") "/tmp/#tmp" (number-to-string (elt (current-time) 1)) (number-to-string (emacs-pid)) "#"))
   (let ((procname)
 	(bufname "*RASMOL*"))
     (write-region pdb-start-user-region pdb-end-user-region pdb-rasmol-filestamp)
@@ -1565,6 +1568,15 @@ ATOM     11  O3* A   A   1       0.272  -1.450  -2.624  1.00 20.00\n"))
     (delete-windows-on buffer)
     (kill-buffer buffer))
   (message (concat "RASMOL session " string)))
+
+(message "rna-clean loaded...")
+
+(defun rna-puzzle-ready()
+  "rna-clean"
+  (message "rna-clean")
+  (interactive) 
+  (rna-clean)
+  )
 
 (defun pdb-ebi-sentinel (process string)
   "PDB mode: Process the results from the EBI connection."
