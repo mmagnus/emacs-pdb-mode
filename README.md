@@ -5,9 +5,9 @@ pdb-mode is an emacs-lisp minor mode for Emacs to perform a number of useful edi
 
 (mmagnus: I'm not an author of this code, I just updated it slightly, all credits go to Charlie Bond & David Love)
 
-## emacs-pdb-mode & rna-pdb-tools
+## emacs-pdb-mode & rna-tools
 
-rna-pdb-tools can be used side-by-side https://github.com/mmagnus/emacs-pdb-mode to edit files structural files in the PDB format.
+rna-tools can be used side-by-side https://github.com/mmagnus/emacs-pdb-mode to edit files structural files in the PDB format.
 
 http://rna-tools.readthedocs.io/en/latest/emacs.html
 
