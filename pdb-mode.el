@@ -930,7 +930,7 @@ C-M-pageup and C-M-pagedown jump to the previous/next chain."
       (cond ((< (point) pdb-end-user-region)
 	     (goto-char  (+ (point-at-bol) 11))
 	     (delete-backward-char 5)
-	     (insert-string (format "%5s" (int-to-string i))))))
+	     (insert (format "%5s" (int-to-string i))))))
     (pdb-sub-markregion)))
 
 (defun pdb-renumber-waters (b e pdb-start-number)
@@ -946,7 +946,7 @@ C-M-pageup and C-M-pagedown jump to the previous/next chain."
       (cond ((< (point) pdb-end-user-region)
 	     (goto-char  (+ (point-at-bol) 26))
 	     (delete-backward-char 4)
-	     (insert-string (format "%4s" (int-to-string i))))))
+	     (insert (format "%4s" (int-to-string i))))))
     (pdb-sub-markregion)))
 
 ;;TIDY UP
@@ -1062,7 +1062,7 @@ ATOM      2  CA  GLY A   1       0.000   0.000   0.000  1.00 20.00           C
 ATOM      3  C   GLY A   1       1.525   0.000   0.000  1.00 20.00           C
 ATOM      4  O   GLY A   1       2.155   1.057   0.000  1.00 20.00           O\n"))
     (let ((str (concat str (cdr (assoc-ignore-case pdb-test-string pdb-record-lookup)))))
-      (insert-string str)))
+      (insert str)))
   (setq pdb-end-user-region (point))
   (pdb-sub-markregion)
   (pdb-change-type pdb-start-user-region pdb-end-user-region pdb-test-string)
@@ -1090,7 +1090,7 @@ ATOM      9  C1* A   A   1       0.000   0.000   0.000  1.00 20.00
 ATOM     10  C3* A   A   1       0.445  -1.932  -1.287  1.00 20.00
 ATOM     11  O3* A   A   1       0.272  -1.450  -2.624  1.00 20.00\n"))
     (let ((str (concat str (cdr (assoc-ignore-case pdb-test-string pdb-record-lookup)))))
-      (insert-string str)))
+      (insert str)))
   (setq pdb-end-user-region (point))
   (pdb-sub-markregion)
   (pdb-change-type pdb-start-user-region pdb-end-user-region pdb-test-string)
@@ -1165,19 +1165,19 @@ ATOM     11  O3* A   A   1       0.272  -1.450  -2.624  1.00 20.00\n"))
 	    (re-search-forward "^ATOM  .....  N ")
 	    (delete-region (+ (point-at-bol) 30) (+ (point-at-bol) 54))
 	    (goto-char  (+ (point-at-bol) 30))
-	    (insert-string (format "%8.3f%8.3f%8.3f" (elt ntrue 0) (elt ntrue 1) (elt ntrue 2)))
+	    (insert (format "%8.3f%8.3f%8.3f" (elt ntrue 0) (elt ntrue 1) (elt ntrue 2)))
 	    (re-search-forward "^ATOM  .....  CA")
 	    (delete-region (+ (point-at-bol) 30) (+ (point-at-bol) 54))
 	    (goto-char  (+ (point-at-bol) 30))
-	    (insert-string (format "%8.3f%8.3f%8.3f" (elt atrue 0) (elt atrue 1) (elt atrue 2)))
+	    (insert (format "%8.3f%8.3f%8.3f" (elt atrue 0) (elt atrue 1) (elt atrue 2)))
 	    (re-search-forward "^ATOM  .....  C ")
 	    (delete-region (+ (point-at-bol) 30) (+ (point-at-bol) 54))
 	    (goto-char  (+ (point-at-bol) 30))
-	    (insert-string (format "%8.3f%8.3f%8.3f" (elt ctrue 0) (elt ctrue 1) (elt ctrue 2)))
+	    (insert (format "%8.3f%8.3f%8.3f" (elt ctrue 0) (elt ctrue 1) (elt ctrue 2)))
 	    (re-search-forward "^ATOM  .....  O ")
 	    (delete-region (+ (point-at-bol) 30) (+ (point-at-bol) 54))
 	    (goto-char  (+ (point-at-bol) 30))
-	    (insert-string (format "%8.3f%8.3f%8.3f" (elt otrue 0) (elt otrue 1) (elt otrue 2)))))))))
+	    (insert (format "%8.3f%8.3f%8.3f" (elt otrue 0) (elt otrue 1) (elt otrue 2)))))))))
 
 (defun pdb-data-cell (pdb-test-string)
   "PDB mode: Define unit cell"
@@ -1195,7 +1195,7 @@ ATOM     11  O3* A   A   1       0.272  -1.450  -2.624  1.00 20.00\n"))
     (if (re-search-forward "^CRYST1" nil t 1)
 	(progn (goto-char (point-at-bol))
 	       (kill-line)))
-    (insert-string (concat "CRYST1" (format "%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f %-s" (elt pdb-cell-local 0) (elt pdb-cell-local 1) (elt pdb-cell-local 2) (elt pdb-cell-local 3) (elt pdb-cell-local 4) (elt pdb-cell-local 5) pdb-spacegroup-local) "\n" ))))
+    (insert (concat "CRYST1" (format "%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f %-s" (elt pdb-cell-local 0) (elt pdb-cell-local 1) (elt pdb-cell-local 2) (elt pdb-cell-local 3) (elt pdb-cell-local 4) (elt pdb-cell-local 5) pdb-spacegroup-local) "\n" ))))
 
 (defun pdb-data-spacegroup (pdb-test-string)
   "PDB mode: Define spacegroup"
@@ -1221,7 +1221,7 @@ ATOM     11  O3* A   A   1       0.272  -1.450  -2.624  1.00 20.00\n"))
     (if (< diff 80)
 	(progn 
 	  (goto-char (point-at-eol))
-	  (insert-string (substring str (* -1 diff2)))
+	  (insert (substring str (* -1 diff2)))
 	  (setq pdb-end-user-region (+ diff2 pdb-end-user-region))))))
   
 (defun pdb-sub-defineregion (b e)
