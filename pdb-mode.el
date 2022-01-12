@@ -62,7 +62,7 @@
 (defvar pdb-menu-hook nil "Menu hook for pdb-mode")
 (defconst pdb-mode-menu-def
   '("PDB"
-    ("rna-pdb-tools ..."
+    ("rna-tools ..."
      ["RNApuzzle ready"              rna-puzzle-ready t]
      )
     ("Select ..."
