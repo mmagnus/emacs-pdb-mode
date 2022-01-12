@@ -994,7 +994,7 @@ C-M-pageup and C-M-pagedown jump to the previous/next chain."
   (interactive "r" )
   (pdb-sub-defineregion b e)
   (while (< (point) e)
-    (re-search-forward "^\\(ATOM  \\|HETATM\\)..... .H.*$" e 1 nil)
+    (re-search-forward "^\\(ATOM  \\|HETATM\\)..... .?H.*$" e 1 nil)
     (if (< (point) e)
 	(progn
 	  (beginning-of-line)
