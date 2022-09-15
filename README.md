@@ -3,6 +3,8 @@ emacs-pdb
 
 pdb-mode is an emacs-lisp minor mode for Emacs to perform a number of useful editing functions on Protein DataBank (PDB) formatted files. XEmacs and/or GNU Emacs are available for most computing platforms.
 
+Read more on implemented functions https://crystal.scb.uwa.edu.au/charlie/software/pdb-mode/
+
 (@mmagnus: I'm not an author of this code, I just updated it slightly, fixed it in 2020, all credits go to Charlie Bond & David Love, I asked Charles S. Bond if I can share it and he was OK with that ;-)
 
 ## emacs-pdb-mode & rna-tools
